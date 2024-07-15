@@ -1,0 +1,180 @@
+{%extends 'my_app/basic.html'%} {% load static %}
+
+<!-- TITLE -->
+{% block title %} {{id}} {% endblock %}
+
+<!-- CSS -->
+{% block css %}
+<style></style>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'my_app/css/details.css'%}"
+/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+<!-- BODY -->
+{% block body%}
+
+<div>
+  <div class="detail">
+    <!-- BLOCK 1 -->
+    <div class="infoBlock">
+      <div>
+        <span class="badge rounded-pill text-bg-warning">Rank #{{rank}}</span>
+
+        <div class="logo_intro_head">
+          <img src="{{logo}}" alt="" />
+          <h1>{{name}} Price</h1>
+          <span> • {{symbol}}</span>
+        </div>
+
+        <p class="price">${{price}} <span class="priceBadge">^2%</span></p>
+      </div>
+
+      <!-- MARKET STATS -->
+
+      <div>
+        <h3>Market Stats</h3>
+        <div class="marketBlock">
+          <div>
+            <h6>Price</h6>
+            <p>9283.92</p>
+          </div>
+          <div>
+            <h6>Market Cap</h6>
+            <p>{{market_cap}}</p>
+          </div>
+          <div>
+            <h6>Volume(24h)</h6>
+            <p>9283.92</p>
+          </div>
+          <div>
+            <h6>Price Change(1h)</h6>
+            <p>{{priceChange_1h}}</p>
+          </div>
+          <div>
+            <h6>Price Change(24h)</h6>
+            <p>{{priceChange_24h}}</p>
+          </div>
+          <div>
+            <h6>Price Change(7d)</h6>
+            <p>{{priceChange_7d}}</p>
+          </div>
+          <div>
+            <h6>Circulating Supply</h6>
+            <p>{{circulating_supply}}</p>
+          </div>
+          <div>
+            <h6>Total Supply</h6>
+            <p>{{total_supply}}</p>
+          </div>
+          <div>
+            <h6>Maximum Supply</h6>
+            <p>9283.92</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRAPH BLOCK -->
+    <div class="graphBlock">
+      <div>
+        <h3>{{name}} Price Chart</h3>
+      </div>
+      <div class="chart">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="description-block">
+    <div class="question">What is {{name}} ?</div>
+    <div class="answer">{{description}}</div>
+    <div>
+      <a href="{{homepage}}" target="_blank" class="site">Visit Site</a>
+    </div>
+  </div>
+</div>
+
+{%endblock%}
+
+<!-- JAVASCRIPT -->
+{% block js %}
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var chartData = "{{ chartData|escapejs }}";
+    chartData = JSON.parse(chartData);
+
+    var { dates, prices_data, market_caps_data, total_volumes_data } =
+      chartData;
+
+    dates = dates.map(function (dateString) {
+      var date = new Date(dateString);
+      return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      });
+    });
+
+    console.log(dates, prices_data, 22);
+    var chart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: dates, // Assuming dates is an array of Date objects
+        datasets: [
+          {
+            label: "Price",
+            data: prices_data,
+            borderColor: "green",
+            fill: false,
+            pointRadius: 0,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          xAxes: [
+            {
+              type: "time",
+              time: {
+                unit: "day",
+                displayFormats: {
+                  day: "MM DD",
+                },
+              },
+              gridLines: {
+                display: false,
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Dates",
+              },
+            },
+          ],
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: false,
+              },
+              gridLines: {
+                display: false,
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Value",
+              },
+            },
+          ],
+        },
+      },
+    });
+  });
+</script>
+
+{%endblock%}

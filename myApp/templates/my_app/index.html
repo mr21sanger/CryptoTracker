@@ -1,0 +1,148 @@
+{%extends 'my_app/basic.html'%} {% load static %} {% block title %} Crypto
+Currency {% endblock %} {% block css %}
+<style></style>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'my_app/css/index.css'%}"
+/>
+{% endblock %} {% block body %}
+<div class="info-div">
+  <ul class="global">
+    <li>Cryptos: <span class="highlight">2.4m+</span></li>
+    <li>Exchanges: <span class="highlight">790</span></li>
+    <li>Market Cap: <span class="highlight">$2.17T</span></li>
+    <li>24h Vol: <span class="highlight">$51.24B</span></li>
+  </ul>
+</div>
+
+<div class="introHeading">
+  <div>
+  <h2 class="introH1">Today's Cryptocurrency Price by Market Cap</h2>
+  <span class="introPara">
+    The global crypto market cap is 
+    <span class="highlight">$2.17T</span>, a
+    <span class="highlight">  2.63%</span>
+     increase over the last day.
+  </p>
+ </div>
+</div>
+
+<!-- HIGHLIGHT BLOCK -->
+<div class="cardBlock">
+    <!-- TRENDING BLOCK -->
+  <div class="card">
+      <h3 class="card-heading">🔥Trending Coins</h3>
+      <div>
+        <table class="table table-transparent">
+          <tbody>
+            {%for trending in trending_coin%}
+            {% if forloop.counter <= 3 %}
+            <tr class="">
+              <th scope="row">{{forloop.counter}}</th>
+              <td ><img src={{trending.item.small}} alt="">   {{trending.item.name}}</td>
+              <td class="infoVal"><span>{{trending.item.data.price_change_percentage_24h.usd}}%</span></td>
+            </tr>
+            {% endif %}
+            {%endfor%} 
+          </tbody>
+        </table>
+      </div>
+  </div> 
+
+  <!-- RECENTLY ADDED BLOCK -->
+   <div class="card">
+    <h3 class="card-heading">🔥Trending NFTs</h3>
+    <div>
+      <table class="table table-transparent">
+        <tbody>
+          {% for trending in trending_nfts %}
+          {% if forloop.counter <= 3 %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td><img src={{trending.thumb}} alt="" class="trendingLogo">   {{trending.symbol}}</td>
+            <td class="infoVal"><span>{{trending.data.floor_price_in_usd_24h_percentage_change}}%</span></td>
+          </tr>
+          {%endif%}
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  
+  <!-- MORE VISITED BLOCK -->
+   <div class="card">
+    <h3 class="card-heading">🔥Trending Categories</h3>
+    <div>
+      <table class="table table-transparent">
+        <tbody> 
+          {% for trending in trending_category %}
+          {% if forloop.counter <= 3 %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{trending.name}}</td>
+            <td class="infoVal"><span>{{trending.coins_count}} coins</span></td>
+          </tr>
+          {%endif%}
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- CRYPTO CURRENCY TABLE -->
+<div>
+  <table class="table table-hover Currency-table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">1h%</th>
+        <th scope="col">24h%</th>
+        <th scope="col">7d%</th>
+        <th scope="col">Market Cap</th>
+        <th scope="col">Volume(24h)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for coin in coins_data %}
+      <tr onclick="navigateToPage('{{ coin.id }}')">
+        <td scope="row">{{forloop.counter }}</td>
+        <td>
+          <img src='{{coin.image}}' alt="logo" class="logo">
+          {{coin.name}} • {{coin.symbol}}
+        </td>
+        
+        <td>${{coin.current_price}}</td>
+        <td>0.14%</td>
+        <td>{{coin.price_change_percentage_24h}}%</td>
+        <td>1.4%</td>
+
+        <td>${{coin.market_cap}}</td>
+        <td>${{coin.total_volume}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+</div>
+
+
+{% endblock %} {% block js %}
+<script>
+
+  var trending_data = {{"trending_data"}}
+  console.log(trending_data)
+   
+ function navigateToPage(id) {
+  var url = "{% url 'details' id=0 %}".replace('0', id);
+  window.location.href = url;
+ } 
+    
+</script>
+{% endblock %}

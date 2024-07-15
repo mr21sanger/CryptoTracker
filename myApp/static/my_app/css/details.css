@@ -1,0 +1,157 @@
+.detail {
+  display: flex;
+}
+
+.infoBlock {
+  width: 50%;
+  height: 100vh;
+  padding: 10px 20px;
+}
+
+.infoBlock h1 {
+  font-weight: bold;
+}
+
+.logo_intro_head {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  width: auto;
+  margin-top: 0.3em;
+}
+
+.logo_intro_head span {
+  font-size: 1.5rem;
+  color: rgb(176, 175, 175);
+  text-transform: capitalize;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.priceBadge {
+  font-size: 1rem;
+  margin-left: 1em;
+  padding: 0.2em 0.7em;
+  border-radius: 0.3em;
+  font: bold;
+  font-size: 1.1rem;
+  color: rgb(1, 255, 1);
+  height: auto;
+  background-color: rgba(2, 246, 2, 0.281);
+}
+
+h3 {
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+.marketBlock {
+  background-color: rgb(0, 0, 63);
+  width: 98%;
+  height: 25em;
+  margin: auto;
+  border-radius: 1em;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 0.5em;
+  padding: 1em;
+}
+
+.marketBlock div {
+  /* border: 1px solid white; */
+  padding: 0.5em;
+}
+
+.marketBlock div h6 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgb(166, 166, 166);
+}
+
+.marketBlock div p {
+  font-size: 1.2rem;
+}
+
+.trendingLogo {
+  border-radius: 100%;
+  border: 5px solid white;
+}
+
+button {
+  border-radius: 100%;
+  background-color: transparent;
+  border: 1px solid gray;
+}
+
+.infoButton {
+  border-radius: 2px;
+  height: 25px;
+  width: 25px;
+  background-color: none;
+  color: gray;
+  font-size: medium;
+}
+
+.graphBlock {
+  padding-left: 2em;
+  width: 50%;
+}
+
+.chart {
+  /* background-color: rgba(0, 0, 81, 0.685); */
+  /* background-color: red; */
+  width: 90%;
+  height: 75%;
+  margin: 2em 0;
+  border-radius: 1em;
+}
+
+.question {
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 1em;
+}
+
+.answer {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+}
+
+.description-block {
+  background-color: rgba(0, 0, 81, 0.685);
+  height: auto;
+  width: 95%;
+  border-radius: 2em;
+  padding: 3em;
+  margin: 1em auto;
+}
+
+.site {
+  background-color: rgba(128, 128, 128, 0.533);
+  border-radius: 4px;
+  padding: 5px;
+  color: rgb(160, 159, 159);
+  font-weight: bold;
+  font-style: none;
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .detail {
+    flex-direction: column;
+  }
+  .infoBlock{
+    width: 100vw;
+  }
+  .graphBlock {
+    padding-left: 2em;
+    width: 100%;
+    height: 60vh;
+}
+}

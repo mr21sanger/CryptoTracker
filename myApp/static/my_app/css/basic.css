@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(0, 0, 41);
+  color: whitesmoke;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: rgb(0, 0, 41);
+  border-bottom: 2px solid white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-item a {
+  color: white;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.583);
+  border: none;
+  transition: all;
+  transition-duration: 1s;
+}
+
+.form-control:focus {
+  width: 25vw;
+  background-color: rgba(255, 255, 255, 0.583);
+}
+
+.navContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+}
+.optionBlock {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+  
+  .navbar-brand {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+  }
+  
+  .optionBlock {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .optionBlock form {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .optionBlock button {
+    width: 100%;
+  }
+}

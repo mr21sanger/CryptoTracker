@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.info-div {
+  height: 2em;
+  background-color: rgb(0, 0, 41);
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+.global {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 5em;
+  list-style: none;
+}
+
+.highlight {
+  color: rgb(116, 116, 255);
+}
+
+.introHeading {
+  height: 6em;
+  padding: 1em;
+}
+
+.introH1 {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.introPara {
+  font-size: normal;
+  color: rgb(205, 205, 205);
+}
+
+.cardBlock {
+  height: 18em;
+  display: flex;
+  justify-content: center;
+  gap: 2.5em;
+  align-items: center;
+}
+
+.card {
+  height: 80%;
+  background-color: rgba(24, 24, 59, 0.727);
+  box-shadow: 1px 1px 7px black;
+  width: 30%;
+  color: white;
+  padding: 1em;
+}
+
+.infoVal {
+  text-align: right;
+}
+
+.table-transparent td,
+.table-transparent th {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.card-heading {
+  font-weight: bold;
+}
+
+.Currency-table {
+  width: 95%;
+  margin: auto;
+  /* text-align: center; */
+  vertical-align: middle;
+}
+
+.Currency-table td{
+  padding: 10px;
+  height: 5em;
+  border-bottom: 1px solid white;
+  background-color: transparent !important;
+  color: white;
+}
+
+.Currency-table tr:hover {
+  background-color: rgba(24, 24, 59, 0.5);
+}
+
+.Currency-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff; /* Optional: Background color for header */
+}
+
+/* .name-block{
+  display: flex;
+  text-align: left;
+  align-items: center;
+  background-color: aliceblue;
+} */
+
+img{
+  height: 5vh;
+  width: 2vw;
+}
+
