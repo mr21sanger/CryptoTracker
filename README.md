@@ -10,14 +10,11 @@
 2. Cryptocurrency Listings and Details:
 •	Provide a comprehensive list of cryptocurrencies with their current prices.
 •	Include detailed information such as market cap, volume, circulating supply, and price charts.<br>
-
 3. Search  Options:
 •	Enable users to search for specific cryptocurrencies by name or symbol.<br>
-
 4. Responsive Web Design:
 •	Ensure the app is responsive and accessible across different devices (desktops, tablets, smartphones).
 •	Optimize user experience with a clean and intuitive interface.<br>
-
 5. API Integration:
 •	Utilize a public API CoinGecko to fetch cryptocurrency data.
 </pre>
