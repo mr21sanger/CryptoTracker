@@ -6,19 +6,18 @@
 <pre>
 1. Real-time Price Tracking:
 •	Display real-time prices of cryptocurrencies fetched from a public API.
-•	Update prices dynamically refreshing the page.
-  
+•	Update prices dynamically refreshing the page.<br>
 2. Cryptocurrency Listings and Details:
 •	Provide a comprehensive list of cryptocurrencies with their current prices.
-•	Include detailed information such as market cap, volume, circulating supply, and price charts.
+•	Include detailed information such as market cap, volume, circulating supply, and price charts.<br>
 
-4. Search  Options:
-•	Enable users to search for specific cryptocurrencies by name or symbol.
+3. Search  Options:
+•	Enable users to search for specific cryptocurrencies by name or symbol.<br>
 
-6. Responsive Web Design:
+4. Responsive Web Design:
 •	Ensure the app is responsive and accessible across different devices (desktops, tablets, smartphones).
-•	Optimize user experience with a clean and intuitive interface.
+•	Optimize user experience with a clean and intuitive interface.<br>
 
-8. API Integration:
+5. API Integration:
 •	Utilize a public API CoinGecko to fetch cryptocurrency data.
 </pre>
