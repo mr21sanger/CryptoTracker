@@ -52,11 +52,8 @@ def home(request):
 # SINGLE COIN DETAIL PAGE
 def details(request, id):
     context = getDetail(id)
-    print(context)
-    if context:
-        return render(request, "my_app/details.html", context)
-    else:
-        return render(request, "my_app/error.html")
+    return render(request, "my_app/details.html", context)
+ 
 
 
 def chart(id, days=7, currency="usd"):

@@ -80,7 +80,6 @@ body {
 
   .form-control:focus {
     width: 38vw;
-    border-radius: 3em;
   }
 
   .brandLogo {

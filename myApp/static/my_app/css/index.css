@@ -323,8 +323,6 @@ img {
     overflow: scroll; 
     white-space: nowrap; 
   }
-
-
   .Currency-table th:first-child,
   .Currency-table td:first-child {
     position: static;
