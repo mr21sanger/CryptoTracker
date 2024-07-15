@@ -17,4 +17,6 @@
 •	Optimize user experience with a clean and intuitive interface.<br>
 5. API Integration:
 •	Utilize a public API CoinGecko to fetch cryptocurrency data.
+6. Data Visualization with Chart.js
+Purpose: Enhance the app's capability to represent cryptocurrency price data through interactive charts visually.
 </pre>
