@@ -8,8 +8,12 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-
 def home(request):
+    # GETTING GLOBAL DATA FOR GLOBAL BLOCKS
+    global_data = globalData()
+    global_data = global_data.get("data", {})
+
+    # GETTING TRENDING DATA FOR TRENDING BLOCKS
     trendingData = trending()
     coins = trendingData.get("coins", [])
     nft = trendingData.get("nfts", [])
@@ -23,7 +27,7 @@ def home(request):
         "order": "market_cap_desc",
         "per_page": 100,
         "page": 1,
-        "sparkline": "true",
+        "sparkline": "false",
     }
 
     # Make a GET request to the API
@@ -36,31 +40,30 @@ def home(request):
         "trending_coin": coins,
         "trending_nfts": nft,
         "trending_category": category,
+        "global_data": global_data,
     }
-    return render(request, "my_app/index.html", context)
+
+    if context:
+        return render(request, "my_app/index.html", context)
+    else:
+        return render(request, "my_app/error.html")
 
 
 # SINGLE COIN DETAIL PAGE
 def details(request, id):
     context = getDetail(id)
-    return render(request, "my_app/details.html", context)
-
-    #     else:
-    #         context = {
-    #             "error_message": f"Failed to fetch data from CoinGecko API. Status code: {response.status_code}"
-    #         }
-    #         return render(
-    #             request, "my_app/error.html", context
-    #         )  # Render an error template or handle as per your application logic
+    print(context)
+    if context:
+        return render(request, "my_app/details.html", context)
+    else:
+        return render(request, "my_app/error.html")
 
 
 def chart(id, days=7, currency="usd"):
-    print(id, days, currency)
     url = f"https://api.coingecko.com/api/v3/coins/{id}/market_chart?vs_currency={currency}&days={days}"
 
     try:
         response = requests.get(url)
-
         if response.status_code == 200:
             chart_data = response.json()
 
@@ -84,10 +87,8 @@ def chart(id, days=7, currency="usd"):
                 "market_caps_data": market_caps_data,
                 "total_volumes_data": total_volumes_data,
             }
-
             json_data = json.dumps(context)
             return json_data
-
     except requests.exceptions.RequestException as e:
         return e
 
@@ -96,7 +97,6 @@ def trending():
     url = "https://api.coingecko.com/api/v3/search/trending"
     response = requests.get(url)
     trendingData = response.json()
-
     return trendingData
 
 
@@ -104,6 +104,8 @@ def search(request):
     query = request.GET.get("query")
     if query:
         return redirect("details", id=query)
+    else:
+        return render(request, "my_app/error.html")
 
 
 def getDetail(id):
@@ -143,13 +145,14 @@ def getDetail(id):
             )
 
             homepage = coin_data.get("links", {}).get("homepage", [])[0]
-            circulating_supply = coin_data.get("circulating_supply", "")
-            total_supply = coin_data.get("total_supply", "")
+            circulating_supply = coin_data.get("market_data", {}).get(
+                "circulating_supply", ""
+            )
+            total_supply = coin_data.get("market_data", {}).get("total_supply", "")
             description = coin_data.get("description", {}).get("en", "")
 
             context = {
                 "id": id,
-                # "coin_data": coin_data,
                 "name": name,
                 "symbol": symbol,
                 "logo": logo,
@@ -170,33 +173,12 @@ def getDetail(id):
             }
             return context
     except requests.exceptions.RequestException as e:
-        # Handle exceptions related to network issues or API errors
         context = {"error_message": f"Request error: {str(e)}"}
         return context
 
 
-def signup(request):
-    if request.method == "POST":
-        name = request.POST["name"]
-        phone = request.POST["phone"]
-        email = request.POST["email"]
-        password = request.POST["password"]
-        con_password = request.POST["con-password"]
-        print("hii")
-
-        if password == con_password:
-            if User.objects.filter(username=name).exists():
-                messages.error(request, "Username already exists")
-            elif User.objects.filter(email=email).exists():
-                messages.error(request, "Email already registered")
-            else:
-                user = User.objects.create_user(
-                    username=name, password=password, phone=phone, email=email
-                )
-                user.save()
-                messages.success(request, "User registered successfully")
-                return redirect("home")
-        else:
-            messages.error(request, "Passwords do not match")
-
-    return redirect("home")
+def globalData():
+    url = "https://api.coingecko.com/api/v3/global"
+    response = requests.get(url)
+    globalData = response.json()
+    return globalData

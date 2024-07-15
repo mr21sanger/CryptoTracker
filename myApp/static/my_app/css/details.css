@@ -40,9 +40,7 @@
   border-radius: 0.3em;
   font: bold;
   font-size: 1.1rem;
-  color: rgb(1, 255, 1);
   height: auto;
-  background-color: rgba(2, 246, 2, 0.281);
 }
 
 h3 {
@@ -51,7 +49,7 @@ h3 {
 }
 
 .marketBlock {
-  background-color: rgb(0, 0, 63);
+  background-color: rgba(35, 35, 35, 0.727);
   width: 98%;
   height: 25em;
   margin: auto;
@@ -63,7 +61,6 @@ h3 {
 }
 
 .marketBlock div {
-  /* border: 1px solid white; */
   padding: 0.5em;
 }
 
@@ -103,8 +100,6 @@ button {
 }
 
 .chart {
-  /* background-color: rgba(0, 0, 81, 0.685); */
-  /* background-color: red; */
   width: 90%;
   height: 75%;
   margin: 2em 0;
@@ -123,7 +118,7 @@ button {
 }
 
 .description-block {
-  background-color: rgba(0, 0, 81, 0.685);
+  background-color: rgba(35, 35, 35, 0.727);
   height: auto;
   width: 95%;
   border-radius: 2em;
@@ -141,17 +136,101 @@ button {
   text-decoration: none;
 }
 
-
 @media only screen and (max-width: 600px) {
   .detail {
     flex-direction: column;
   }
-  .infoBlock{
+  .infoBlock {
     width: 100vw;
+    height: 75vh;
   }
+
+  .marketBlock div {
+    padding: 0.1em;
+  }
+
+  .marketBlock {
+    height: 18em;
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .marketBlock div h6 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(166, 166, 166);
+  }
+  .marketBlock div p {
+    font-size: 0.8rem;
+  }
+
   .graphBlock {
     padding-left: 2em;
     width: 100%;
     height: 60vh;
+  }
+
+  .description-block {
+    padding: 1em;
+    overflow: hidden;
+  }
+
+  .question {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .answer {
+    text-align: center;
+    text-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 1279px) {
+  .detail {
+    flex-direction: column;
+  }
+
+ h3 {
+    font-size: 2rem;
+}
+
+  .infoBlock {
+    width: 100vw;
+    height: 42vh;
+  }
+
+  .marketBlock {
+    height: 22em;
+    gap: 0.5em;
+    padding: 1em;
+  }
+
+  .marketBlock div h6 {
+    font-size: 1.6rem;
+  }
+  .marketBlock div p {
+    font-size: 1.5rem;
+  }
+
+  .graphBlock {
+    padding-left: 2em;
+    width: 100%;
+    height: 60vh;
+  }
+
+  .question {
+    text-align: center;
+    font-size: 3.5rem;
+  }
+
+  .answer {
+    font-size: 2rem;
+    text-align: center;
+    text-wrap: wrap;
+  }
+
+  .site {
+  font-size: 2rem;
 }
 }

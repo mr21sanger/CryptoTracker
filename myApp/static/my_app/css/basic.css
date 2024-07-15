@@ -4,33 +4,55 @@
 }
 
 body {
-  background-color: rgb(0, 0, 41);
-  color: whitesmoke;
+  background-color: black;
+  color: white;
   overflow-x: hidden;
 }
 
+.brandLogo {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .navbar {
-  background-color: rgb(0, 0, 41);
+  background-color: rgb(0, 0, 0);
   border-bottom: 2px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-brand {
   color: white;
+  font-size: 1.5rem; 
 }
 
 .navbar-item a {
-  color: white;
+  margin: 0 0.5em; 
+}
+
+.logoImage {
+  width: 3.5vw;
+  height: 8vh;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .form-control {
   background-color: rgba(255, 255, 255, 0.583);
   border: none;
-  transition: all;
-  transition-duration: 1s;
+  transition: all 1s;
+  width: 20vw; /* Adjusted width */
 }
 
 .form-control:focus {
-  width: 25vw;
+  width: 35vw;
   background-color: rgba(255, 255, 255, 0.583);
 }
 
@@ -40,38 +62,64 @@ body {
   justify-content: space-between !important;
   align-items: center;
 }
+
 .optionBlock {
   width: 50vw;
   display: flex;
   justify-content: center;
+  display: none;
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
+  body {
+    overflow-x: hidden;
   }
-  
-  .navbar-brand {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
   .form-control {
-    width: 100%;
+    width: 25vw;
   }
-  
-  .optionBlock {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
+
+  .form-control:focus {
+    width: 38vw;
+    border-radius: 3em;
   }
-  
+
+  .brandLogo {
+    font-size: 1rem;
+  }
+
+  .logoImage {
+    width: 8.5vw;
+    height: 6vh;
+  }
+
   .optionBlock form {
     width: 100%;
     margin-bottom: 10px;
   }
-  
+
   .optionBlock button {
     width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1279px) {
+  body {
+    overflow-x: hidden;
+  }
+  .form-control {
+    width: 25vw;
+  }
+
+  .form-control:focus {
+    width: 38vw;
+  }
+
+  .brandLogo {
+    font-size: 2rem;
+  }
+
+  .logoImage {
+    width: 8.5vw;
+    height: 6vh;
   }
 }

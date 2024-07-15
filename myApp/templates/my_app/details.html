@@ -30,7 +30,13 @@
           <span> • {{symbol}}</span>
         </div>
 
-        <p class="price">${{price}} <span class="priceBadge">^2%</span></p>
+        <p class="price">
+          ${{price}}
+          <span class="priceBadge" id="badge"
+            ><i class="fa-solid fa-caret-up" id="symbol"></i>
+            {{priceChange_1h}}% (1h)</span
+          >
+        </p>
       </div>
 
       <!-- MARKET STATS -->
@@ -40,35 +46,35 @@
         <div class="marketBlock">
           <div>
             <h6>Price</h6>
-            <p>9283.92</p>
+            <p>${{price}}</p>
           </div>
           <div>
             <h6>Market Cap</h6>
-            <p>{{market_cap}}</p>
+            <p>${{market_cap}}</p>
           </div>
           <div>
-            <h6>Volume(24h)</h6>
-            <p>9283.92</p>
+            <h6>Total Volume</h6>
+            <p>${{total_vol}}</p>
           </div>
           <div>
             <h6>Price Change(1h)</h6>
-            <p>{{priceChange_1h}}</p>
+            <p>{{priceChange_1h}}%</p>
           </div>
           <div>
             <h6>Price Change(24h)</h6>
-            <p>{{priceChange_24h}}</p>
+            <p>{{priceChange_24h}}%</p>
           </div>
           <div>
             <h6>Price Change(7d)</h6>
-            <p>{{priceChange_7d}}</p>
+            <p>{{priceChange_7d}}%</p>
           </div>
           <div>
             <h6>Circulating Supply</h6>
-            <p>{{circulating_supply}}</p>
+            <p>{{circulating_supply|floatformat:0}}</p>
           </div>
           <div>
             <h6>Total Supply</h6>
-            <p>{{total_supply}}</p>
+            <p>{{total_supply|floatformat:0}}</p>
           </div>
           <div>
             <h6>Maximum Supply</h6>
@@ -102,13 +108,31 @@
 
 <!-- JAVASCRIPT -->
 {% block js %}
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // UPDATE SYMBOL ACCORDING TO PRICE*******************************
+    var priceChange = "{{priceChange_1h}}";
+    if (priceChange < 0) {
+      const symbol = document.getElementById("symbol");
+      const badge = document.getElementById("badge");
+      badge.style.backgroundColor = "rgba(246, 2, 2, 0.281)";
+      badge.style.color = "rgb(255, 1, 1)";
+      symbol.classList.remove("fa-caret-up");
+      symbol.classList.add("fa-caret-down");
+    } 
+    else {
+      const badge = document.getElementById("badge");
+      badge.style.backgroundColor = "rgba(2, 246, 2, 0.281)";
+      badge.style.color = "rgb(1, 255, 1)";
+      symbol.classList.add("fa-caret-up");
+      symbol.classList.remove("fa-caret-down");
+    }
+
+    // CHART UPDATE AND CREATION**************************************
+
     var ctx = document.getElementById("myChart").getContext("2d");
     var chartData = "{{ chartData|escapejs }}";
     chartData = JSON.parse(chartData);
-
     var { dates, prices_data, market_caps_data, total_volumes_data } =
       chartData;
 
@@ -120,17 +144,24 @@
       });
     });
 
-    console.log(dates, prices_data, 22);
+    // CHART
     var chart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: dates, // Assuming dates is an array of Date objects
+        labels: dates,
         datasets: [
           {
             label: "Price",
             data: prices_data,
-            borderColor: "green",
-            fill: false,
+            borderColor: prices_data.map((price, index, array) => {
+              if (index > 0 && price < array[index - 1]) {
+                console.log("hii")
+                return "red"; // Change to red if price is lower than previous
+              } else {
+                console.log("hello")
+                return "green"; // Default to green
+              }
+            }),            fill: false,
             pointRadius: 0,
           },
         ],

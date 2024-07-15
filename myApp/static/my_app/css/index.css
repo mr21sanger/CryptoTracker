@@ -3,11 +3,9 @@
   margin: 0;
 }
 
-
-
 .info-div {
   height: 2em;
-  background-color: rgb(0, 0, 41);
+  background-color: rgba(35, 35, 35, 0.727);
   margin: 0;
   padding: 0;
   border-bottom: 1px solid white;
@@ -18,6 +16,7 @@
   display: flex;
   height: 100%;
   align-items: center;
+  justify-content: space-evenly;
   gap: 5em;
   list-style: none;
 }
@@ -34,11 +33,14 @@
 .introH1 {
   font-size: 2rem;
   font-weight: bolder;
+  text-align: center;
+
 }
 
 .introPara {
   font-size: normal;
   color: rgb(205, 205, 205);
+  text-align: center;
 }
 
 .cardBlock {
@@ -51,7 +53,7 @@
 
 .card {
   height: 80%;
-  background-color: rgba(24, 24, 59, 0.727);
+  background-color: rgba(35, 35, 35, 0.727);
   box-shadow: 1px 1px 7px black;
   width: 30%;
   color: white;
@@ -70,18 +72,31 @@
   font-size: 1.1rem;
 }
 
+.Currency-table th {
+  background-color: rgb(229, 228, 228);
+  color: black;
+  font-size: 1.2rem;
+  padding: 0.5em 1em; 
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 .card-heading {
   font-weight: bold;
+}
+
+.cryptoTable{
+  overflow-x: auto;
 }
 
 .Currency-table {
   width: 95%;
   margin: auto;
-  /* text-align: center; */
   vertical-align: middle;
 }
 
-.Currency-table td{
+.Currency-table td {
   padding: 10px;
   height: 5em;
   border-bottom: 1px solid white;
@@ -89,26 +104,254 @@
   color: white;
 }
 
-.Currency-table tr:hover {
-  background-color: rgba(24, 24, 59, 0.5);
-}
-
 .Currency-table thead {
+  height: 2.2em;
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #fff; /* Optional: Background color for header */
 }
 
-/* .name-block{
-  display: flex;
-  text-align: left;
-  align-items: center;
-  background-color: aliceblue;
-} */
+.trendingRows{
+  font-size: 0.8rem;
+  text-wrap: nowrap;
+  vertical-align: middle;
+}
 
-img{
+
+.Currency-table tr:hover {
+  background-color: rgba(35, 35, 35, 0.727);
+}
+
+img {
   height: 5vh;
   width: 2vw;
 }
+
+@media only screen and (max-width: 600px) {
+  .introH1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .introPara{
+    text-align: center;
+  }
+
+  .info-div {
+    height: 3em;
+  }
+
+  .introHeading {
+    height: 9em;
+}
+
+  .global {
+    gap: 1em;
+  }
+
+  .global li {
+    font-size: 0.8rem;
+  }
+  ul {
+    padding-left: 1rem;
+  }
+
+  .cardBlock {
+    flex-direction: column;
+    height: 45em;
+    gap: 1em;
+    justify-content: start;
+  }
+
+  .card {
+    width: 90%;
+    height: 30%;
+  }
+
+  .table-transparent td,
+  .table-transparent th {
+    font-size: 0.81rem;
+  }
+
+  .Currency-table thead {
+    height: 1em;
+    position: sticky;
+  }
+
+  .Currency-table th {
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    padding: 0.5em 0.5em;
+  }
+
+  img {
+    width: 10vw;
+  }
+
+  .Currency-table td {
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+
+  .cryptoTable{
+    width: 100vw;
+    /* overflow-x: hidden; */
+    padding: 0em 1em;
+  }
+
+  .Currency-table {
+    width: 95%;
+    margin: auto;
+    overflow: scroll; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+  }
+
+
+  .Currency-table th:first-child,
+  .Currency-table td:first-child {
+    position: static; /* Remove sticky position on first column */
+    background-color: #df0808;
+    z-index: auto;
+  }
+
+  .Currency-table td {
+    padding: 10px;
+    height: 5em;
+    border-bottom: 1px solid white;
+    background-color: transparent !important;
+    color: white;
+    transition: transform 0.3s ease; /* Add smooth transition */
+  }
+
+  .Currency-table tr:hover {
+    background-color: rgba(24, 24, 59, 0.5);
+  }
+
+  .Currency-table td:first-child {
+    width: 10vw; 
+    position: sticky;
+  }
+
+  .Currency-table td:hover {
+    transform: translateX(10px); 
+  }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width:1279px) {
+  .introH1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .introPara{
+    text-align: center;
+  }
+
+  .info-div {
+    height: 3em;
+  }
+
+  .introHeading {
+    height: 5em;
+}
+
+  .global {
+    gap: 1em;
+  }
+
+  .global li {
+    font-size: 0.8rem;
+  }
+  ul {
+    padding-left: 1rem;
+  }
+
+  .cardBlock {
+    flex-direction: row;
+    height: 20em;
+    gap: 1.5em;
+    justify-content: start;
+    padding: 1em;
+}
+
+  .card {
+    width: 90%;
+    height: 95%;
+  }
+
+  h3{
+    font-size: 1.3rem;
+  }
+
+  .table-transparent td,
+  .table-transparent th {
+    font-size: 0.8rem;
+  }
+
+  .Currency-table thead {
+    height: 1em;
+    position: sticky;
+  }
+
+  .Currency-table th {
+    background-color: white;
+    color: black;
+    font-size: 1.5rem;
+    padding: 0.5em 0.5em;
+  }
+
+  img {
+    width: 5vw;
+    height: 3.5vh;
+  }
+
+  .Currency-table td {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+
+  .cryptoTable{
+    width: 100vw;
+    padding: 0em 1em;
+  }
+
+  .Currency-table {
+    width: 95%;
+    margin: auto;
+    overflow: scroll; 
+    white-space: nowrap; 
+  }
+
+
+  .Currency-table th:first-child,
+  .Currency-table td:first-child {
+    position: static;
+    z-index: auto;
+  }
+
+  .Currency-table td {
+    padding: 10px;
+    height: 5em;
+    border-bottom: 1px solid white;
+    background-color: transparent !important;
+    color: white;
+    transition: transform 0.3s ease; 
+  }
+
+  .Currency-table tr:hover {
+    background-color: rgba(24, 24, 59, 0.5);
+  }
+
+  .Currency-table td:first-child {
+    width: 10vw; 
+    position: sticky;
+  }
+
+  .Currency-table td:hover {
+    transform: translateX(10px); 
+  }
+}
+
 
