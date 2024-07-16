@@ -20,3 +20,15 @@
 6. Data Visualization with Chart.js
 Purpose: Enhance the app's capability to represent cryptocurrency price data through interactive charts visually.
 </pre>
+
+<h3>Technologies and Tools Used:</h3>
+<pre>• Django Framework: Backend development framework for 
+building scalable web applications in Python.
+• Python: Programming language used for backend logic 
+and integration with APIs.
+• HTML/CSS/JavaScript: Frontend technologies for 
+creating the user interface and enhancing interactivity.
+• Bootstrap or other CSS frameworks: To ensure 
+responsive design and consistent styling.
+• Public API : External data source for fetching real-time 
+cryptocurrency prices and additional information.</pre>
