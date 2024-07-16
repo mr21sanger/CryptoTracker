@@ -90,7 +90,7 @@ with fetched data.
 </pre>
 
 <h3>Some Screenshots of the Project:</h3>
-<pre>
+
 ![Screenshot 2024-07-15 225529](https://github.com/user-attachments/assets/a88136fe-6f15-4065-976e-c2044b9a2576)
   
-</pre>
+
