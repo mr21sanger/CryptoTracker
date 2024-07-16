@@ -42,12 +42,12 @@ another CSS framework).
 • Functionality: Displays cryptocurrency prices, charts, 
 search/filter options, and user authentication forms.<br>
 2. Back-end Server (Django):
-• Description: Handles the logic, data processing, and 
-business rules of the application.
+• Description: Handles the application's logic, data processing, and
+business rules.
 • Technologies: Django framework (Python), PostgreSQL 
 (or another database).<br>
 • Functionality: Manages user authentication, interacts 
-with the database to store and retrieve data, integrates 
+with the database to store and retrieve data, and integrates 
 with external APIs for real-time cryptocurrency prices.<br>
 3. API Integration:
 • Description: Integrates with a public API CoinGecko to 
@@ -63,7 +63,7 @@ securely and efficiently.
 
 <h3>Explanation of How Different Parts of the System Interact:
 </h3>
-<pre>• User Interaction Flow:
+<pre>1. User Interaction Flow:
 • Users interact with the front-end interface to view 
 cryptocurrency prices, search for specific 
 cryptocurrencies, and perform actions like registration and 
@@ -75,12 +75,12 @@ retrieval and processing.
 HTTP requests (GET, POST) for retrieving data (e.g., 
 cryptocurrency prices ) and submitting user actions (e.g.
 search).<br>
-• Backend Processing:
+2. Backend Processing:
 • Django backend processes requests from the front-end, 
 interacts with the database to fetch or update data (e.g., 
 user profiles, cryptocurrency prices), and integrates with 
 the API for real-time data retrieval.<br>
-• API Integration:
+3. API Integration:
 • Backend interacts with the chosen API (e.g., CoinGecko 
 API) to fetch real-time cryptocurrency prices and other 
 relevant data.
