@@ -32,3 +32,20 @@ creating the user interface and enhancing interactivity.
 responsive design and consistent styling.
 • Public API : External data source for fetching real-time 
 cryptocurrency prices and additional information.</pre>
+
+<h3>Components of the Application:</h3>
+<pre>1. Front-end Interface:
+• Description: This component includes the user interface 
+(UI) that users interact with.
+• Technologies: HTML, CSS, JavaScript, Bootstrap (or 
+another CSS framework).
+• Functionality: Displays cryptocurrency prices, charts, 
+search/filter options, and user authentication forms.
+2. Back-end Server (Django):
+• Description: Handles the logic, data processing, and 
+business rules of the application.
+• Technologies: Django framework (Python), PostgreSQL 
+(or another database).
+• Functionality: Manages user authentication, interacts 
+with the database to store and retrieve data, integrates 
+with external APIs for real-time cryptocurrency prices.</pre>
