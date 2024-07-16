@@ -40,12 +40,51 @@ cryptocurrency prices and additional information.</pre>
 • Technologies: HTML, CSS, JavaScript, Bootstrap (or 
 another CSS framework).
 • Functionality: Displays cryptocurrency prices, charts, 
-search/filter options, and user authentication forms.
+search/filter options, and user authentication forms.<br>
 2. Back-end Server (Django):
 • Description: Handles the logic, data processing, and 
 business rules of the application.
 • Technologies: Django framework (Python), PostgreSQL 
-(or another database).
+(or another database).<br>
 • Functionality: Manages user authentication, interacts 
 with the database to store and retrieve data, integrates 
-with external APIs for real-time cryptocurrency prices.</pre>
+with external APIs for real-time cryptocurrency prices.<br>
+3. API Integration:
+• Description: Integrates with a public API CoinGecko to 
+fetch real-time cryptocurrency data.
+• Technologies: Python libraries (e.g., requests for API 
+calls).
+• Functionality: Retrieves up-to-date cryptocurrency prices 
+and additional information such as market cap, volume, 
+and historical data. Handles API requests and responses 
+securely and efficiently.
+</pre>
+
+
+<h3>Explanation of How Different Parts of the System Interact:
+</h3>
+<pre>• User Interaction Flow:
+• Users interact with the front-end interface to view 
+cryptocurrency prices, search for specific 
+cryptocurrencies, and perform actions like registration and 
+login.
+• Front-end sends requests to the Django backend for data 
+retrieval and processing.
+• Front-end to Backend Communication:
+• Front-end communicates with the Django backend through 
+HTTP requests (GET, POST) for retrieving data (e.g., 
+cryptocurrency prices ) and submitting user actions (e.g.
+search).<br>
+• Backend Processing:
+• Django backend processes requests from the front-end, 
+interacts with the database to fetch or update data (e.g., 
+user profiles, cryptocurrency prices), and integrates with 
+the API for real-time data retrieval.<br>
+• API Integration:
+• Backend interacts with the chosen API (e.g., CoinGecko 
+API) to fetch real-time cryptocurrency prices and other 
+relevant data.
+• It handles authentication (if required), constructs API 
+requests, parses responses, and updates the database 
+with fetched data.
+</pre>
