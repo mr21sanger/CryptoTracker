@@ -92,5 +92,11 @@ with fetched data.
 <h3>Some Screenshots of the Project:</h3>
 
 ![Screenshot 2024-07-15 225529](https://github.com/user-attachments/assets/a88136fe-6f15-4065-976e-c2044b9a2576)
+![Screenshot 2024-07-15 225550](https://github.com/user-attachments/assets/9f975fc4-ecfe-4d59-9401-9933f307e267)
+![Screenshot 2024-07-15 225604](https://github.com/user-attachments/assets/9e545997-f152-46d3-99a1-8c81d13d8faf)
+![Screenshot 2024-07-15 225620](https://github.com/user-attachments/assets/834eb1ad-522d-47b1-8c5a-26ca473c31a7)
+![Screenshot 2024-07-15 225756](https://github.com/user-attachments/assets/5a98516e-9c08-4b65-b9ff-0815b03f3148)
+
+
   
 
